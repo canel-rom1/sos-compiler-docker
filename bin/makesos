@@ -1,0 +1,15 @@
+#!/bin/bash
+
+docker_image="canelrom1/sos-compiler"
+
+args="$1"
+
+if [ -z "$args" ]
+then
+	docker run -it --rm -v $(pwd):/tmp -w /tmp $docker_image make 
+else
+	docker run -it --rm -v $(pwd):/tmp -w /tmp $docker_image make "$args"
+fi
+
+
+# vim: ft=sh
